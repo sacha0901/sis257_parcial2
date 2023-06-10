@@ -16,13 +16,13 @@ async function bootstrap() {
     .setTitle('SIS257')
     .setDescription('API de la materia Desarrollo Aplicación INT/Internet II')
     .setVersion('1.0')
-    .addTag('series')
+    .addTag('series,usuarios,auth')
     .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT', in: 'header' })
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('apidoc', app, document);
 
   await app.listen(process.env.PORT);
-  console.log(`Api corriendo en ${await app.getUrl()}`);
+  console.log(`Api corriendo en ${await app.getUrl()}/apidoc`);
 }
 bootstrap();
